@@ -23,6 +23,23 @@ def hello_there(name = None):
         date=datetime.now()
     )
 
+
+@app.put("/sessions/<session>")
+def create_session(session = None):
+    return render_template(
+        "hello_there.html",
+        name=name,
+        date=datetime.now()
+    )
+
+@app.post("/completions/execute")
+def execute_completion():
+    return render_template(
+        "hello_there.html",
+        name=name,
+        date=datetime.now()
+    )
+
 @app.route("/api/data")
 def get_data():
     return app.send_static_file("data.json")
